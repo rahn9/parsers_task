@@ -15,4 +15,5 @@ public class Product {
     private String color;
     private String producer;
     private double price;
+    private boolean notInStock;
 }

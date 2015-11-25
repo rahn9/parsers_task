@@ -3,12 +3,12 @@
 <shop xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="internet-shop.xsd">
     <category>
-        <name>Mobile devices</name>
+        <category-name>Mobile devices</category-name>
         <subcategory>
-            <name>Smartphone</name>
+            <subcategory-name>Smartphone</subcategory-name>
             <product>
-                <id>a234asdf-a2as-a2as-a2as-a234asdf1234</id>
-                <name>Asus Zenfone 2 Laser</name>
+                <id>b215f9e4-804b-408b-a0b6-5de01b80b4eb</id>
+                <product-name>Asus Zenfone 2 Laser</product-name>
                 <producer>ASUS</producer>
                 <model>Sd123</model>
                 <date-of-issue>11-11-2015</date-of-issue>
@@ -16,8 +16,8 @@
                 <price>56.66</price>
             </product>
             <product>
-                <id>s23e4567-e89b-g2d3-a456-ff6655440000</id>
-                <name>Asus Zenfone 2 Laser</name>
+                <id>d12e63ff-b14a-4fb9-811f-3de4f4c48576</id>
+                <product-name>Asus Zenfone 2 Laser</product-name>
                 <producer>Asus</producer>
                 <model>aa123</model>
                 <date-of-issue>12-11-2015</date-of-issue>
@@ -25,8 +25,8 @@
                 <not_in_stock>true</not_in_stock>
             </product>
             <product>
-                <id>s11e4567-e89b-g2d3-a456-f12255440000</id>
-                <name>Asus Zenfone 2 Laser</name>
+                <id>b1fbc22e-5833-4cd6-a4fe-f127265f31ad</id>
+                <product-name>Asus Zenfone 2 Laser</product-name>
                 <producer>Asus</producer>
                 <model>DC678</model>
                 <date-of-issue>17-11-2015</date-of-issue>
@@ -35,10 +35,10 @@
             </product>
         </subcategory>
         <subcategory>
-            <name>Tablets</name>
+            <subcategory-name>Tablets</subcategory-name>
             <product>
-                <id>f1234123-f123-f123-f123-ffff12341234</id>
-                <name>Ipad air</name>
+                <id>c56c28a2-c122-4337-b24f-4cd60cb932be</id>
+                <product-name>Ipad air</product-name>
                 <producer>Apple</producer>
                 <model>ss234</model>
                 <date-of-issue>01-11-2015</date-of-issue>
@@ -46,8 +46,8 @@
                 <price>500</price>
             </product>
             <product>
-                <id>a1234123-a123-a123-a123-aaaa12341234</id>
-                <name>Ipad 4</name>
+                <id>ad57cf47-8882-496c-a298-8004f2a255c7</id>
+                <product-name>Ipad 4</product-name>
                 <producer>Apple</producer>
                 <model>dd124</model>
                 <date-of-issue>03-11-2015</date-of-issue>
@@ -55,8 +55,8 @@
                 <price>300</price>
             </product>
             <product>
-                <id>b1231234-b123-b123-b123-bbbb12341234</id>
-                <name>ThinkPad Tablet</name>
+                <id>b0eec2cd-fee2-4b5a-afe6-53f219bba14e</id>
+                <product-name>ThinkPad Tablet</product-name>
                 <producer>Lenovo</producer>
                 <model>gg644</model>
                 <date-of-issue>23-11-2015</date-of-issue>
