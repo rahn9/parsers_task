@@ -1,0 +1,16 @@
+<!ELEMENT shop (category)+>
+        <!ELEMENT category (subcategory)+>
+        <!ELEMENT subcategory (product)+>
+        <!ELEMENT product (name,provider,model,date,color,(price|not_in_stock))*>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT provider (#PCDATA)>
+        <!ELEMENT model (#PCDATA)>
+        <!ELEMENT date (#PCDATA)>
+        <!ELEMENT color (#PCDATA)>
+        <!ELEMENT price (#PCDATA)>
+        <!ELEMENT not_in_stock (#PCDATA)>
+
+        <!ATTLIST subcategory name CDATA #REQUIRED>
+        <!ATTLIST category name CDATA #REQUIRED>
+        <!ATTLIST product id ID #REQUIRED>
+        <!ATTLIST product name CDATA #REQUIRED>

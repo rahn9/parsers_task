@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE shop SYSTEM "internet-shop.dtd">
+<shop xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="internet-shop.xsd">
+    <category>
+        <name>Mobile devices</name>
+        <subcategory>
+            <name>Smartphone</name>
+            <product>
+                <id>a234asdf-a2as-a2as-a2as-a234asdf1234</id>
+                <name>Asus Zenfone 2 Laser</name>
+                <producer>ASUS</producer>
+                <model>Sd123</model>
+                <date-of-issue>11-11-2015</date-of-issue>
+                <color>red</color>
+                <price>56.66</price>
+            </product>
+            <product>
+                <id>s23e4567-e89b-g2d3-a456-ff6655440000</id>
+                <name>Asus Zenfone 2 Laser</name>
+                <producer>Asus</producer>
+                <model>aa123</model>
+                <date-of-issue>12-11-2015</date-of-issue>
+                <color>black</color>
+                <not_in_stock>true</not_in_stock>
+            </product>
+            <product>
+                <id>s11e4567-e89b-g2d3-a456-f12255440000</id>
+                <name>Asus Zenfone 2 Laser</name>
+                <producer>Asus</producer>
+                <model>DC678</model>
+                <date-of-issue>17-11-2015</date-of-issue>
+                <color>blue</color>
+                <price>56.88</price>
+            </product>
+        </subcategory>
+        <subcategory>
+            <name>Tablets</name>
+            <product>
+                <id>f1234123-f123-f123-f123-ffff12341234</id>
+                <name>Ipad air</name>
+                <producer>Apple</producer>
+                <model>ss234</model>
+                <date-of-issue>01-11-2015</date-of-issue>
+                <color>black</color>
+                <price>500</price>
+            </product>
+            <product>
+                <id>a1234123-a123-a123-a123-aaaa12341234</id>
+                <name>Ipad 4</name>
+                <producer>Apple</producer>
+                <model>dd124</model>
+                <date-of-issue>03-11-2015</date-of-issue>
+                <color>white</color>
+                <price>300</price>
+            </product>
+            <product>
+                <id>b1231234-b123-b123-b123-bbbb12341234</id>
+                <name>ThinkPad Tablet</name>
+                <producer>Lenovo</producer>
+                <model>gg644</model>
+                <date-of-issue>23-11-2015</date-of-issue>
+                <color>black</color>
+                <not_in_stock>true</not_in_stock>
+            </product>
+        </subcategory>
+    </category>
+</shop>

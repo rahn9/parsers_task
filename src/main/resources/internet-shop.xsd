@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="shop" type="shop-type"/>
+
+    <xs:complexType name="shop-type">
+        <xs:sequence>
+            <xs:element name="category" type="category-type" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="category-type">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="subcategory" type="subcategory-type" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="subcategory-type">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="product" type="product-type" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="product-type">
+        <xs:sequence>
+            <xs:element name="id" type="UUID-type"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="producer" type="xs:string"/>
+            <xs:element name="model">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[A-z]{2}\d{3}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="date-of-issue" type="date-type"/>
+            <xs:element name="color" type="xs:string"/>
+            <xs:choice>
+                <xs:element name="price">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:decimal">
+                            <xs:minInclusive value="0.0"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element type="xs:boolean" name="not_in_stock" fixed="true"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="UUID-type">
+        <xs:restriction base="xs:ID">
+            <xs:pattern
+                    value="[\w]{8}-[\w]{4}-[\w]{4}-[\w]{4}-[\w]{12}">
+            </xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="date-type">
+        <xs:restriction base="xs:string">
+            <xs:pattern
+                    value="(0?[1-9]|[12][0-9]|3[01])-(0?[1-9]|1[012])-((19|20)\d\d)">
+            </xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
+
