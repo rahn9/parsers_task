@@ -8,17 +8,16 @@ import org.xml.sax.helpers.XMLReaderFactory;
 
 public class ShopSAX implements Parser<Shop> {
     @Getter
-    @Setter
-    private SAXHandler handler;
+    private SAXHandler saxHandler;
 
     public ShopSAX() {
-        handler = new SAXHandler();
+        saxHandler = new SAXHandler();
     }
 
     public Shop parse(String xmlPath) throws Exception {
         XMLReader xmlReader = XMLReaderFactory.createXMLReader();
-        xmlReader.setContentHandler(handler);
+        xmlReader.setContentHandler(saxHandler);
         xmlReader.parse(xmlPath);
-        return handler.getShop();
+        return saxHandler.getShop();
     }
 }
