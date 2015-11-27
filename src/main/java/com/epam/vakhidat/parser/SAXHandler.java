@@ -1,29 +1,29 @@
-package com.epam.vakhidat.parser.sax;
+package com.epam.vakhidat.parser;
 
 import com.epam.vakhidat.parser.entity.Category;
 import com.epam.vakhidat.parser.entity.Product;
 import com.epam.vakhidat.parser.entity.Shop;
 import com.epam.vakhidat.parser.entity.Subcategory;
 import com.epam.vakhidat.parser.util.DateConverter;
+import lombok.Getter;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import java.text.ParseException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 import java.util.UUID;
 
 public class SAXHandler extends DefaultHandler {
+    @Getter
     private Shop shop = null;
-    private List<Category> categories = new ArrayList<Category>();
-    private List<Subcategory> subcategories = new ArrayList<Subcategory>();
-    private List<Product> products = new ArrayList<Product>();
-    private Stack<String> elementStack = new Stack<String>();
-    private Stack<Object> objectStack = new Stack<Object>();
+    private List<Category> categories = new ArrayList<>();
+    private List<Subcategory> subcategories = new ArrayList<>();
+    private List<Product> products = new ArrayList<>();
+    private Stack<String> elementStack = new Stack<>();
+    private Stack<Object> objectStack = new Stack<>();
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes atts) throws SAXException {
@@ -35,16 +35,19 @@ public class SAXHandler extends DefaultHandler {
         }
         if ("category".equals(qName)) {
             Category category = new Category();
+            category.setName(atts.getValue(0));
             this.objectStack.push(category);
             this.categories.add(category);
         }
         if ("subcategory".equals(qName)) {
             Subcategory subcategory = new Subcategory();
+            subcategory.setName(atts.getValue(0));
             this.objectStack.push(subcategory);
             this.subcategories.add(subcategory);
         }
         if ("product".equals(qName)) {
             Product product = new Product();
+            product.setId(UUID.fromString(atts.getValue(0)));
             this.objectStack.push(product);
             this.products.add(product);
         }
@@ -76,10 +79,7 @@ public class SAXHandler extends DefaultHandler {
         String value = new String(ch, start, length).trim();
         if (value.length() == 0) return; // ignore white space
 
-        if ("id".equals(currentElement())) {
-            Product product = (Product) this.objectStack.peek();
-            product.setId(UUID.fromString(value));
-        } else if ("product-name".equals(currentElement())) {
+        if ("product-name".equals(currentElement())) {
             Product product = (Product) this.objectStack.peek();
             product.setName(value);
         } else if ("producer".equals(currentElement())) {
@@ -98,8 +98,8 @@ public class SAXHandler extends DefaultHandler {
         } else if ("color".equals(currentElement())) {
             Product product = (Product) this.objectStack.peek();
             product.setColor(value);
-        } else if ("price".equals(currentElement()) || "not_in_stock".equals(currentElement())){
-            if ("price".equals(currentElement())){
+        } else if ("price".equals(currentElement()) || "not_in_stock".equals(currentElement())) {
+            if ("price".equals(currentElement())) {
                 Product product = (Product) this.objectStack.peek();
                 product.setPrice(Double.valueOf(value));
             } else {
@@ -111,7 +111,7 @@ public class SAXHandler extends DefaultHandler {
             Category category = (Category) this.objectStack.peek();
             category.setName(value);
         }
-        if ("subcategory-name".equals(currentElement())){
+        if ("subcategory-name".equals(currentElement())) {
             Subcategory subcategory = (Subcategory) this.objectStack.peek();
             subcategory.setName(value);
         }
@@ -119,9 +119,5 @@ public class SAXHandler extends DefaultHandler {
 
     private String currentElement() {
         return this.elementStack.peek();
-    }
-
-    public Shop getShop() {
-        return shop;
     }
 }

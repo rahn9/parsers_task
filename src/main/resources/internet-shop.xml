@@ -2,12 +2,9 @@
 <!DOCTYPE shop SYSTEM "internet-shop.dtd">
 <shop xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="internet-shop.xsd">
-    <category>
-        <category-name>Mobile devices</category-name>
-        <subcategory>
-            <subcategory-name>Smartphone</subcategory-name>
-            <product>
-                <id>b215f9e4-804b-408b-a0b6-5de01b80b4eb</id>
+    <category name="Mobile devices">
+        <subcategory name="Smartphone">
+            <product id="b215f9e4-804b-408b-a0b6-5de01b80b4eb">
                 <product-name>Asus Zenfone 2 Laser</product-name>
                 <producer>ASUS</producer>
                 <model>Sd123</model>
@@ -15,8 +12,7 @@
                 <color>red</color>
                 <price>56.66</price>
             </product>
-            <product>
-                <id>d12e63ff-b14a-4fb9-811f-3de4f4c48576</id>
+            <product id="d12e63ff-b14a-4fb9-811f-3de4f4c48576">
                 <product-name>Asus Zenfone 2 Laser</product-name>
                 <producer>Asus</producer>
                 <model>aa123</model>
@@ -24,8 +20,7 @@
                 <color>black</color>
                 <not_in_stock>true</not_in_stock>
             </product>
-            <product>
-                <id>b1fbc22e-5833-4cd6-a4fe-f127265f31ad</id>
+            <product id="b1fbc22e-5833-4cd6-a4fe-f127265f31ad">
                 <product-name>Asus Zenfone 2 Laser</product-name>
                 <producer>Asus</producer>
                 <model>DC678</model>
@@ -34,10 +29,8 @@
                 <price>56.88</price>
             </product>
         </subcategory>
-        <subcategory>
-            <subcategory-name>Tablets</subcategory-name>
-            <product>
-                <id>c56c28a2-c122-4337-b24f-4cd60cb932be</id>
+        <subcategory name="Tablets">
+            <product id="c56c28a2-c122-4337-b24f-4cd60cb932be">
                 <product-name>Ipad air</product-name>
                 <producer>Apple</producer>
                 <model>ss234</model>
@@ -45,8 +38,7 @@
                 <color>black</color>
                 <price>500</price>
             </product>
-            <product>
-                <id>ad57cf47-8882-496c-a298-8004f2a255c7</id>
+            <product id="ad57cf47-8882-496c-a298-8004f2a255c7">
                 <product-name>Ipad 4</product-name>
                 <producer>Apple</producer>
                 <model>dd124</model>
@@ -54,8 +46,7 @@
                 <color>white</color>
                 <price>300</price>
             </product>
-            <product>
-                <id>b0eec2cd-fee2-4b5a-afe6-53f219bba14e</id>
+            <product id="b0eec2cd-fee2-4b5a-afe6-53f219bba14e">
                 <product-name>ThinkPad Tablet</product-name>
                 <producer>Lenovo</producer>
                 <model>gg644</model>

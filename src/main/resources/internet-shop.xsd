@@ -12,21 +12,20 @@
 
     <xs:complexType name="category-type">
         <xs:sequence>
-            <xs:element name="category-name" type="xs:string" minOccurs="1" maxOccurs="1"/>
             <xs:element name="subcategory" type="subcategory-type" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
+        <xs:attribute type="xs:string" name="name" use="required"/>
     </xs:complexType>
 
     <xs:complexType name="subcategory-type">
         <xs:sequence>
-            <xs:element name="subcategory-name" type="xs:string" minOccurs="1" maxOccurs="1"/>
             <xs:element name="product" type="product-type" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
+        <xs:attribute type="xs:string" name="name" use="required"/>
     </xs:complexType>
 
     <xs:complexType name="product-type">
         <xs:sequence>
-            <xs:element name="id" type="UUID-type"/>
             <xs:element name="product-name" type="xs:string"/>
             <xs:element name="producer" type="xs:string"/>
             <xs:element name="model">
@@ -49,6 +48,7 @@
                 <xs:element type="xs:boolean" name="not_in_stock" fixed="true"/>
             </xs:choice>
         </xs:sequence>
+        <xs:attribute type="UUID-type" name="id" use="required"/>
     </xs:complexType>
 
     <xs:simpleType name="UUID-type">

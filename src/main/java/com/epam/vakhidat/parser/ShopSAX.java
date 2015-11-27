@@ -1,21 +1,22 @@
-package com.epam.vakhidat.parser.sax;
+package com.epam.vakhidat.parser;
 
-import com.epam.vakhidat.parser.Parser;
 import com.epam.vakhidat.parser.entity.Shop;
+import lombok.Getter;
+import lombok.Setter;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
 
 public class ShopSAX implements Parser<Shop> {
-    private SAXHandler saxHandler;
+    @Getter @Setter private SAXHandler handler;
 
     public ShopSAX() {
-        saxHandler = new SAXHandler();
+        handler = new SAXHandler();
     }
 
     public Shop parse(String xmlPath) throws Exception {
         XMLReader xmlReader = XMLReaderFactory.createXMLReader();
-        xmlReader.setContentHandler(saxHandler);
+        xmlReader.setContentHandler(handler);
         xmlReader.parse(xmlPath);
-        return saxHandler.getShop();
+        return handler.getShop();
     }
 }
