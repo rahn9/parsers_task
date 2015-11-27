@@ -7,7 +7,9 @@ import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
 
 public class ShopSAX implements Parser<Shop> {
-    @Getter @Setter private SAXHandler handler;
+    @Getter
+    @Setter
+    private SAXHandler handler;
 
     public ShopSAX() {
         handler = new SAXHandler();

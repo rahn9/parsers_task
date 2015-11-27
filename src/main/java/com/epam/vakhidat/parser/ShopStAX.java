@@ -45,7 +45,7 @@ public class ShopStAX {
         subcategories = new ArrayList<>();
         products = new ArrayList<>();
 
-        while (reader.hasNext()){
+        while (reader.hasNext()) {
             switch (type) {
                 case XMLStreamConstants.START_ELEMENT:
                     startElement(reader);
@@ -104,18 +104,18 @@ public class ShopStAX {
     private void endElement(XMLStreamReader reader) throws XMLStreamException {
         name = reader.getLocalName();
 
-            switch (name) {
-                case "product":
-                    products.add(product);
-                    break;
-                case "subcategory":
-                    subcategory.setProducts(products);
-                    subcategories.add(subcategory);
-                    break;
-                case "category":
-                    category.setSubcategories(subcategories);
-                    categories.add(category);
-                    break;
-            }
+        switch (name) {
+            case "product":
+                products.add(product);
+                break;
+            case "subcategory":
+                subcategory.setProducts(products);
+                subcategories.add(subcategory);
+                break;
+            case "category":
+                category.setSubcategories(subcategories);
+                categories.add(category);
+                break;
+        }
     }
 }
