@@ -1,39 +1,21 @@
 package com.epam.vakhidat.parser;
 
 import com.epam.vakhidat.parser.entity.Shop;
+import org.xml.sax.SAXException;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
+import java.text.ParseException;
 
 public class ParserManager {
 
-    /*public static List<Category> DOMManager(String xmlName, String xsdName) {
-
-        List<Category> categoryList = null;
-        try {
-            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-            dbf.setValidating(false);
-            dbf.setNamespaceAware(true);
-            SchemaFactory schemaFactory = SchemaFactory
-                    .newInstance("http://www.w3.org/2001/XMLSchema");
-            dbf.setSchema(schemaFactory
-                    .newSchema(new Source[]{new StreamSource(xsdName)}));
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            Document document = db.parse(xmlName);
-            Element root = document.getDocumentElement();
-            categoryList = new ArrayList<Category>();
-            categoryList.add(ShopDOM.listBuilder(root));
-        } catch (ParserConfigurationException e) {
-            log.error("Parser Configuration Exception");
-        } catch (SAXException e) {
-            log.error("SAXHandler Exception");
-        } catch (IOException e) {
-            log.error("IO Exception");
-        }
-        log.info("XML document parse with com.epam.vakhidat.parser.ShopDOM parser");
-        return categoryList;
-    }*/
+    public static Shop DOMManager(String xmlName) throws IOException, SAXException, ParseException {
+        ShopDOM shopDOM = new ShopDOM();
+        Shop shop = shopDOM.parse(xmlName);
+        return shop;
+    }
 
     public static Shop SAXManager(String xmlName) {
         Shop shop = new Shop();
