@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE shop SYSTEM "internet-shop.dtd">
+<!DOCTYPE shop SYSTEM "C:\Users\Vakhidat_Matiyeva@epam.com\IdeaProjects\parser\src\main\webapp\xml\internet-shop.dtd">
 <shop xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="internet-shop.xsd">
     <category name="Mobile devices">
