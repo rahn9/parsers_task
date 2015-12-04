@@ -5,6 +5,7 @@ import com.epam.vakhidat.parser.entity.Product;
 import com.epam.vakhidat.parser.entity.Shop;
 import com.epam.vakhidat.parser.entity.Subcategory;
 import com.epam.vakhidat.parser.util.DateConverter;
+import com.epam.vakhidat.parser.util.ParserPropManager;
 import lombok.Getter;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -24,16 +25,17 @@ public class SAXHandler extends DefaultHandler {
     private List<Product> products = new ArrayList<>();
     private Stack<String> elementStack = new Stack<>();
     private Stack<Object> objectStack = new Stack<>();
+    private ParserPropManager manager = ParserPropManager.getParserPropManager();
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes atts) throws SAXException {
         this.elementStack.push(qName);
 
-        if ("shop".equals(qName)) {
+        if (manager.getPattern("entity.shop").equals(qName)) {
             shop = new Shop();
             this.objectStack.push(shop);
         }
-        if ("category".equals(qName)) {
+        if (manager.getPattern("entity.category").equals(qName)) {
             Category category = new Category();
             category.setName(atts.getValue(0));
             this.objectStack.push(category);
