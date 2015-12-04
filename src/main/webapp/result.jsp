@@ -1,21 +1,12 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Ilya_Doroshenko
-  Date: 11/13/2015
-  Time: 3:24 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link rel="stylesheet" href="dist/themes/default/style.min.css"/>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <title></title>
+    <title>parsers</title>
 </head>
 <body>
 
-<div id="jstree" class="demo plugin-demo">
+<div class="shop">
     <ul>
         <li>Shop
             <s:iterator value="shop.category" var="category">
@@ -53,26 +44,5 @@
         </li>
     </ul>
 </div>
-
-<!-- 4 include the jQuery library -->
-<script src="dist/libs/jquery-1.11.3.js"></script>
-<!-- 5 include the minified jstree source -->
-<script src="dist/jstree.min.js"></script>
-<script>
-    $(function () {
-        // 6 create an instance when the DOM is ready
-        $('#jstree').jstree({
-            "plugins": ["types"],
-            "types": {
-                "default": {
-                    "icon": "glyphicon glyphicon-flash"
-                },
-                "demo": {
-                    "icon": "glyphicon glyphicon-ok"
-                }
-            }
-        });
-    });
-</script>
 </body>
 </html>

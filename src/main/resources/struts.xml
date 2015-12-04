@@ -7,13 +7,13 @@
 
     <package name="default" extends="struts-default">
         <action name="dom" method="dom" class="com.epam.vakhidat.parser.controller.Controller">
-            <result name="SUCCESS">result.jsp</result>
+            <result name="success">result.jsp</result>
         </action>
-        <action name="sax" method="sax" class="com.epam.epam.vakhidat.controller.parser.ActionController">
-            <result name="SUCCESS">result.jsp</result>
+        <action name="sax" method="sax" class="com.epam.vakhidat.parser.controller.Controller">
+            <result name="success">result.jsp</result>
         </action>
         <action name="stax" method="stax" class="com.epam.vakhidat.parser.controller.Controller">
-            <result name="SUCCESS">result.jsp</result>
+            <result name="success">result.jsp</result>
         </action>
     </package>
 

@@ -80,10 +80,10 @@ public class ShopDOM {
             product.setId(UUID.fromString(productElement.getAttribute("id")));
             product.setName(productElement.getElementsByTagName("product-name").item(0).getTextContent());
 
-            if (productElement.getElementsByTagName("price")!=null && productElement.getElementsByTagName("price").item(0)!=null)  {
+            if (productElement.getElementsByTagName("price") != null && productElement.getElementsByTagName("price").item(0) != null) {
                 product.setPrice(Double.parseDouble(productElement.getElementsByTagName("price").item(0).getTextContent()));
             }
-            if (productElement.getElementsByTagName("not_in_stock")!=null && productElement.getElementsByTagName("not_in_stock").item(0)!=null)  {
+            if (productElement.getElementsByTagName("not_in_stock") != null && productElement.getElementsByTagName("not_in_stock").item(0) != null) {
                 product.setNotInStock(Boolean.valueOf(productElement.getElementsByTagName("not_in_stock").item(0).getTextContent()));
             }
             product.setModel(productElement.getElementsByTagName("model").item(0).getTextContent());

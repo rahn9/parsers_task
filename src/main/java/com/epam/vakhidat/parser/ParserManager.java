@@ -29,12 +29,13 @@ public class ParserManager {
         return shop;
     }
 
-    public static Shop StAXManager(String xmlName) throws FileNotFoundException {
+    public static Shop StAXManager(String xmlName) throws IOException {
         Shop shop;
         ShopStAX stAXParser = new ShopStAX();
         InputStream inputStream = new FileInputStream(xmlName);
         stAXParser.parse(inputStream);
         shop = stAXParser.getShop();
+        inputStream.close();
         return shop;
     }
 }
