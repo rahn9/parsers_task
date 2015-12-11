@@ -4,7 +4,6 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-
     <package name="default" extends="struts-default">
         <action name="dom" method="dom" class="com.epam.vakhidat.parser.controller.Controller">
             <result name="success">result.jsp</result>

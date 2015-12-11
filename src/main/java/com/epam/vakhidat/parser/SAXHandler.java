@@ -18,6 +18,7 @@ import java.util.Stack;
 import java.util.UUID;
 
 public class SAXHandler extends DefaultHandler {
+    private ParserPropManager manager = ParserPropManager.getParserPropManager();
     @Getter
     private Shop shop = null;
     private List<Category> categories = new ArrayList<>();
@@ -25,7 +26,6 @@ public class SAXHandler extends DefaultHandler {
     private List<Product> products = new ArrayList<>();
     private Stack<String> elementStack = new Stack<>();
     private Stack<Object> objectStack = new Stack<>();
-    private ParserPropManager manager = ParserPropManager.getParserPropManager();
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes atts) throws SAXException {
@@ -41,13 +41,13 @@ public class SAXHandler extends DefaultHandler {
             this.objectStack.push(category);
             this.categories.add(category);
         }
-        if ("subcategory".equals(qName)) {
+        if (manager.getPattern("entity.subcategory").equals(qName)) {
             Subcategory subcategory = new Subcategory();
             subcategory.setName(atts.getValue(0));
             this.objectStack.push(subcategory);
             this.subcategories.add(subcategory);
         }
-        if ("product".equals(qName)) {
+        if (manager.getPattern("entity.product").equals(qName)) {
             Product product = new Product();
             product.setId(UUID.fromString(atts.getValue(0)));
             this.objectStack.push(product);
@@ -59,17 +59,18 @@ public class SAXHandler extends DefaultHandler {
     public void endElement(String uri, String localName, String qName) throws SAXException {
         this.elementStack.pop();
 
-        if ("shop".equals(qName) || "category".equals(qName) || "subcategory".equals(qName) || "product".equals(qName)) {
+        if (manager.getPattern("entity.shop").equals(qName) || manager.getPattern("entity.category").equals(qName) ||
+                manager.getPattern("entity.subcategory").equals(qName) || manager.getPattern("entity.product").equals(qName)) {
             Object object = this.objectStack.pop();
-            if ("subcategory".equals(qName)) {
+            if (manager.getPattern("entity.subcategory").equals(qName)) {
                 Subcategory subcategory = (Subcategory) object;
                 subcategory.setProducts(this.products);
             }
-            if ("category".equals(qName)) {
+            if (manager.getPattern("entity.category").equals(qName)) {
                 Category category = (Category) object;
                 category.setSubcategories(this.subcategories);
             }
-            if ("shop".equals(qName)) {
+            if (manager.getPattern("entity.shop").equals(qName)) {
                 Shop shop = (Shop) object;
                 shop.setCategories(this.categories);
             }
@@ -81,27 +82,27 @@ public class SAXHandler extends DefaultHandler {
         String value = new String(ch, start, length).trim();
         if (value.length() == 0) return; // ignore white space
 
-        if ("product-name".equals(currentElement())) {
+        if (manager.getPattern("product.name").equals(currentElement())) {
             Product product = (Product) this.objectStack.peek();
             product.setName(value);
-        } else if ("producer".equals(currentElement())) {
+        } else if (manager.getPattern("product.producer").equals(currentElement())) {
             Product product = (Product) this.objectStack.peek();
             product.setProducer(value);
-        } else if ("model".equals(currentElement())) {
+        } else if (manager.getPattern("product.model").equals(currentElement())) {
             Product product = (Product) this.objectStack.peek();
             product.setModel(value);
-        } else if ("date-of-issue".equals(currentElement())) {
+        } else if (manager.getPattern("product.dateOfIssue").equals(currentElement())) {
             Product product = (Product) this.objectStack.peek();
             try {
                 product.setDateOfIssue(DateConverter.parseDate(value));
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-        } else if ("color".equals(currentElement())) {
+        } else if (manager.getPattern("product.color").equals(currentElement())) {
             Product product = (Product) this.objectStack.peek();
             product.setColor(value);
-        } else if ("price".equals(currentElement()) || "not_in_stock".equals(currentElement())) {
-            if ("price".equals(currentElement())) {
+        } else if (manager.getPattern("product.price").equals(currentElement()) || manager.getPattern("product.notInStock").equals(currentElement())) {
+            if (manager.getPattern("product.price").equals(currentElement())) {
                 Product product = (Product) this.objectStack.peek();
                 product.setPrice(Double.valueOf(value));
             } else {
@@ -109,11 +110,11 @@ public class SAXHandler extends DefaultHandler {
                 product.setNotInStock(Boolean.valueOf(value));
             }
         }
-        if ("category-name".equals(currentElement())) {
+        if (manager.getPattern("category.attribute.name").equals(currentElement())) {
             Category category = (Category) this.objectStack.peek();
             category.setName(value);
         }
-        if ("subcategory-name".equals(currentElement())) {
+        if (manager.getPattern("subcategory.attribute.name").equals(currentElement())) {
             Subcategory subcategory = (Subcategory) this.objectStack.peek();
             subcategory.setName(value);
         }

@@ -5,8 +5,8 @@
     <title>parsers</title>
 </head>
 <body>
-<s:a action="dom"><h1>DOM</h1></s:a>
-<s:a action="sax"><h1>SAX</h1></s:a>
-<s:a action="stax"><h1>StAX</h1></s:a>
+<a href="/dom">DOM</a>
+<a href="/sax">SAX</a>
+<a href="/stax">StAX</a>
 </body>
 </html>

@@ -5,6 +5,7 @@ import com.epam.vakhidat.parser.entity.Product;
 import com.epam.vakhidat.parser.entity.Shop;
 import com.epam.vakhidat.parser.entity.Subcategory;
 import com.epam.vakhidat.parser.util.DateConverter;
+import com.epam.vakhidat.parser.util.ParserPropManager;
 import lombok.Getter;
 
 import javax.xml.stream.XMLInputFactory;
@@ -19,6 +20,7 @@ import java.util.UUID;
 
 
 public class ShopStAX {
+    private static ParserPropManager manager = ParserPropManager.getParserPropManager();
     @Getter
     private Shop shop;
     private Category category;
